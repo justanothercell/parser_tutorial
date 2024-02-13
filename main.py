@@ -7,7 +7,7 @@ variables = {
     'x': 3
 }
 
-expression = 's i n(pi + 4) * x'
+expression = 'ssin(pi + 4) * x'
 ast = parse(expression)
 result = ast.eval(variables)
 print(result)

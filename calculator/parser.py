@@ -96,6 +96,12 @@ class Parser:
 
     def parse_binary_op(self, left: AST, op: str) -> BinaryOp:
         right = self.parse_expression()
+        # TODO: check precedence
+        if isinstance(right, BinaryOp):
+            if right.op in '*/%' and op in "+-": # right is strictly higher binding than left
+                return BinaryOp(left, right, op)
+            # otherwise, we switch to have left-to-right evaluation
+            return BinaryOp(BinaryOp(left, right.left, op), right.right, right.op)
         return BinaryOp(left, right, op)
 
     def parse_unary_op(self) -> UnaryOp:
