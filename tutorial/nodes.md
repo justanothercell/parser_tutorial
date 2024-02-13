@@ -25,7 +25,7 @@ class Parser:
         try:
             return Value(float(value))
         except ValueError: # not an int/float
-            raise ParseException(f'Invalid float literal `{value}`', self)
+            raise ParseException(f'Invalid number literal `{value}`', self)
 
 ```
 </details>
@@ -67,7 +67,7 @@ class Parser:
 ```
 </details>
 
-Let's not implement any operator precedence yet, let's get this working first.
+Let's not implement any operator precedence for binary operations yet, let's get this working first:
 
 <details>
 <summary>parse_binary_op</summary>
@@ -83,7 +83,7 @@ class Parser:
 </details>
 
 <details>
-<summary>parse_binary_op</summary>
+<summary>parse_unary_op</summary>
 
 ```py
 class Parser:
@@ -102,12 +102,12 @@ If we now [run](../main.py) the program we get...
              ^^^^^^^^
 AttributeError: 'FuncCall' object has no attribute 'eval'
 ```
-Yes! All the parsing steps are now implemented. Let's quickly fix the operator precedence and then get going with evaluation.
+Yes! All the parsing steps are now implemented and only the evaluation is missing. Let's quickly fix the operator precedence and then get going with that.
 
 Currently, the way parsing is set up, binary operators are grouped right to left:<br>
 `BinaryOp(a, BinaryOp(b, BinaryOp(c, ..., "+"), "+"), "+")`<br>
 We now _only_ want this to be the case if the right binary operator is strictly higher in precedence than the left one,
-which means we can now check:
+which means we now have to check:
 - whether the right value even is a binary operator
 - whether it is equal or less in precedence
 

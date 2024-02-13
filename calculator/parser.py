@@ -71,7 +71,7 @@ class Parser:
         try:
             return Value(float(value))
         except ValueError: # not an int/float
-            raise ParseException(f'Invalid float literal `{value}`', self)
+            raise ParseException(f'Invalid number literal `{value}`', self)
 
     def parse_variable(self) -> Variable:
         variable = ''

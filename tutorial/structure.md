@@ -1,6 +1,6 @@
 # Chapter 2: Structure & AST
 
-[Back: Goas](goals.md) | [Overview](../README.md#Overview) | [Next: Parser Layout](parser.md)
+[Back: Goals](goals.md) | [Overview](../README.md#Overview) | [Next: Parser Layout](parser.md)
 
 ---
 Let's use this expression as an example: <br> 
@@ -25,7 +25,7 @@ From this we can see a few patterns emerging:
 - then we resolve multiplication/division
 - then we resolve addition/subtraction
 
-In fact this looks like a tree structure! This is why this is also referred to as an Abstract Syntax Tree (AST).
+In fact this looks like a tree structure! This is why that is also referred to as an Abstract Syntax Tree (AST).
 We can represent this structure with some classes, the AST nodes.
 
 | Class (extending AST) | Fields                         |
