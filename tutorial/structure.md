@@ -36,7 +36,7 @@ We can represent this structure with some classes, the AST nodes.
 | BinaryOp              | left: AST, right: AST, op: str |
 | UnaryOp               | item: AST, op: str             |
 
-You may have noticed that there is no correspondign class for Bracketed expressions.
+You may have noticed that there is no corresponding class for bracketed expressions.
 This is because brackets simply change the shape of the tree:
 ```
 a * (b + c) | BinaryOp with: left = a,     right = b + c, op = "*"

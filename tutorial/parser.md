@@ -35,7 +35,7 @@ class Parser:
 ```
 </details>
 
-We can now iterrate over the input like this:
+We can now iterate over the input like this:
 <details>
     <summary>Example</summary>
 
@@ -50,7 +50,7 @@ while parser.has_current():
 print(out)
 ```
 ```
-sin(pi * x + 4)
+sin(pi+4)*x
 ```
 </details>
 
