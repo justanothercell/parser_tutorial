@@ -1,4 +1,4 @@
-# Nano Calculator Tutorial
+# A tiny expression parsing tutorial
 This is a tutorial on how to build a small calculator/expression evaluator in python.
 
 This tutorial simplifies some things, so there is no prior knowledge in compilers/parsers needed.
