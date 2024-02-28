@@ -12,8 +12,8 @@ Aoyone who has spent some time with python knows that eval is very much the oppo
 Some evil eval:
 - `eval('open("passwords.txt").read()')`
 
-Removing builtin `open` by passing in an explicit `global` dict:
-- `eval('__import__("os").system("rm passwords.txt")')`
+Removing builtin `open` by passing in an explicit `globals` dict:
+- `eval('__import__("os").system("rm passwords.txt")', globals)`
 
 The possibilites are truly endless!
 
