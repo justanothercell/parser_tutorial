@@ -13,7 +13,9 @@ Some evil eval:
 - `eval('open("passwords.txt").read()')`
 
 Removing builtin `open` by passing in an explicit `global` dict:
-- eval('__import__("os").system("rm passwords.txt")')
+- `eval('__import__("os").system("rm passwords.txt")')`
+
+The possibilites are truly endless!
 
 Even if you manage to close all the countless loopholes, this still does not save you from [arbitrary bytecode execution](https://github.com/DragonFighter603/pybox?tab=readme-ov-file#known-bugsloopholes)
 which at best crashes your program and at worst, well, excutes anything.
