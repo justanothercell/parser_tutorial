@@ -10,11 +10,13 @@ Our goal is to create something similar to python's `eval()` function, but make 
 Aoyone who has spent some time with python knows that eval is very much the opposite from safe-to-use.
 
 Some evil eval:
-- `eval('open("passwords.txt").read()')`
-
+```py
+eval('open("passwords.txt").read()')
+```
 Removing builtin `open` by passing in an explicit `globals` dict:
-- `eval('__import__("os").system("rm passwords.txt")', globals)`
-
+```py
+eval('__import__("os").system("rm passwords.txt")', globals)
+```
 The possibilites are truly endless!
 
 Even if you manage to close all the countless loopholes, this still does not save you from [arbitrary bytecode execution](https://github.com/DragonFighter603/pybox?tab=readme-ov-file#known-bugsloopholes)
