@@ -106,5 +106,5 @@ class Parser:
     def parse_unary_op(self) -> UnaryOp:
         op = self.current()
         self.next()
-        item = self.parse_Expression()
+        item = self.parse_expression()
         return UnaryOp(item, op)
