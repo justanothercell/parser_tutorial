@@ -31,7 +31,7 @@ class Parser:
 
     # are we still in range?
     def has_current(self) -> bool:
-        return self.index >= len(self.text)
+        return self.index < len(self.text)
 ```
 </details>
 

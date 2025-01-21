@@ -22,7 +22,7 @@ class Parser:
     def __init__(self, text: str):
         self.text = text
         self.index = 0
-    
+
     def next(self):
         self.index += 1
         # let's skip the whitespaces - we do not have any need for those
@@ -37,7 +37,7 @@ class Parser:
 
     def has_current(self) -> bool:
         return self.index < len(self.text)
-    
+
     def parse_expression(self) -> AST:
         c = self.current()
         if c == '(':
@@ -91,12 +91,11 @@ class Parser:
             if self.current() == ')':
                 self.next() # )
                 return FuncCall(name, args)
-            self.next() # ,        
+            self.next() # ,
         raise ParseException('Function call was not ended with closing bracket', self) 
 
     def parse_binary_op(self, left: AST, op: str) -> BinaryOp:
         right = self.parse_expression()
-        # TODO: check precedence
         if isinstance(right, BinaryOp):
             if right.op in '*/%' and op in "+-": # right is strictly higher binding than left
                 return BinaryOp(left, right, op)

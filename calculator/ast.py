@@ -4,14 +4,14 @@ class AST:
 class Value(AST):
     def __init__(self, value: int|float):
         self.value = value
-    
+
     def eval(self, variables):
         return self.value
 
 class Variable(AST):
     def __init__(self, name: str):
         self.name = name
-    
+
     def eval(self, variables):
         return variables[self.name]
 
@@ -19,7 +19,7 @@ class FuncCall(AST):
     def __init__(self, name: str, args: list[AST]):
         self.name = name
         self.args = args
-    
+
     def eval(self, variables):
         args = [arg.eval(variables) for arg in self.args]
         return variables[self.name](*args)
@@ -29,7 +29,7 @@ class BinaryOp(AST):
         self.left = left
         self.right = right
         self.op = op
-    
+
     def eval(self, variables):
         left = self.left.eval(variables)
         right = self.right.eval(variables)
